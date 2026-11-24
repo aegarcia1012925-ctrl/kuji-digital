@@ -34,7 +34,8 @@ The AI chat works when `OPENAI_API_KEY` is configured. Project inquiries are ema
 1. Have an adult account owner handle any hosting, API-provider account, and billing setup.
 2. Add the environment variables above as encrypted secrets where supported.
 3. Verify the sender domain with Resend before enabling lead emails.
-4. Test the chat, inquiry form, mobile layout, and email delivery.
-5. Review service descriptions and portfolio concepts so they accurately describe Kuji Digital.
+4. Add a Cloudflare rate-limiting rule for POST requests to `/api/chat` and `/api/lead` to reduce abuse and unexpected API/email costs.
+5. Test the chat, inquiry form, mobile layout, and email delivery.
+6. Review service descriptions and portfolio concepts so they accurately describe Kuji Digital.
 
 The chatbot is an AI assistant, not a human representative. It must not promise project prices, availability, or results; it should guide visitors to submit an inquiry for a tailored response.
