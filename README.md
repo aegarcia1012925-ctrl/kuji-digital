@@ -1,37 +1,40 @@
 # Kuji Digital — Multi-page website
 
-A responsive digital agency website for Kuji Digital, an AI-powered digital services concept.
+Responsive digital agency website with an AI customer assistant.
 
 ## Pages and files
 
 - `index.html` — homepage, services, and project inquiry form
-- `about.html` — studio mission and working principles
-- `projects.html` — concept portfolio and interactive scripted chatbot demo
-- `how-it-works.html` — project process and frequently asked questions
-- `styles.css` — shared responsive visual system, glass styling, and animations
-- `script.js` — mobile navigation, scroll reveals, inquiry email preparation, and quick-reply customer chatbot
-- `assets/favicon.svg` — custom brand favicon
+- `about.html` — studio mission and principles
+- `projects.html` — concept portfolio and demo
+- `how-it-works.html` — project process and FAQ
+- `styles.css` — shared responsive visual system and chat styling
+- `script.js` — navigation, inquiry form, and AI chat client
+- `functions/api/chat.js` — secure server-side AI chat endpoint
+- `functions/api/lead.js` — server-side project inquiry email endpoint
 
-## Preview
+## Hosting requirement
 
-Open `index.html` in a browser. For a public website, enable GitHub Pages in the repository settings or connect the repository to a static hosting provider.
+The `functions/api` endpoints require **Cloudflare Pages Functions**. A static-only host such as GitHub Pages cannot run these server-side functions. Connect this repository to Cloudflare Pages and use the repository root as the build output directory (no build command is needed for this plain HTML site).
 
-## Before publishing
+## Required server-side environment variables
 
-1. Confirm the contact email in `script.js`.
-2. Review service descriptions and ensure they match the services actually offered.
-3. The project cards are clearly marked as concept demonstrations; replace them with real work as the portfolio grows.
-4. The floating customer chatbot uses a local FAQ knowledge base and replies after a short 550 ms typing indicator. It does not call a live AI model or send customer messages to a server.
-5. The inquiry form opens a prefilled email in the visitor's email app; it does not store or submit form data to a server.
-6. Test all pages and forms on mobile and desktop.
-7. Connect a custom domain if desired.
+Set these in Cloudflare Pages → Settings → Variables and Secrets. Add secrets only in the hosting dashboard; never commit API keys to GitHub.
 
-## Brand tokens
+- `OPENAI_API_KEY` — secret for the AI Responses API.
+- `OPENAI_MODEL` — optional; defaults to `gpt-4.1-mini`.
+- `RESEND_API_KEY` — secret used to email project inquiries.
+- `LEADS_TO_EMAIL` — destination inbox for Kuji Digital inquiries.
+- `LEADS_FROM_EMAIL` — sender address on a domain verified with Resend.
 
-- Obsidian: `#09090D`
-- Graphite: `#191923`
-- Violet: `#9274FF`
-- Cloud: `#F8F8FC`
-- Typeface: Inter
+The AI chat works when `OPENAI_API_KEY` is configured. Project inquiries are emailed only after the Resend settings and verified sender are configured. The website does not keep a database of customer inquiries.
 
-Tagline: **Your business. Automated.**
+## Before launch
+
+1. Have an adult account owner handle any hosting, API-provider account, and billing setup.
+2. Add the environment variables above as encrypted secrets where supported.
+3. Verify the sender domain with Resend before enabling lead emails.
+4. Test the chat, inquiry form, mobile layout, and email delivery.
+5. Review service descriptions and portfolio concepts so they accurately describe Kuji Digital.
+
+The chatbot is an AI assistant, not a human representative. It must not promise project prices, availability, or results; it should guide visitors to submit an inquiry for a tailored response.
