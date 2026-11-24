@@ -54,7 +54,7 @@ if (inquiryForm) inquiryForm.addEventListener("submit", (event) => {
   if (!inquiryForm.reportValidity()) return;
   const data = new FormData(inquiryForm);
   const subject = encodeURIComponent("Kuji Digital project inquiry");
-  const body = encodeURIComponent("Name: " + (data.get("name") || "") + "\\nBusiness: " + (data.get("business") || "") + "\\nReply email: " + (data.get("email") || "") + "\\nService: " + (data.get("service") || "") + "\\n\\nProject details:\\n" + (data.get("details") || ""));
+  const body = encodeURIComponent("Name: " + (data.get("name") || "") + "\nBusiness: " + (data.get("business") || "") + "\nReply email: " + (data.get("email") || "") + "\nService: " + (data.get("service") || "") + "\n\nProject details:\n" + (data.get("details") || ""));
   const status = document.querySelector("#form-status");
   if (status) status.textContent = "Opening your email app. Review the message and send it when you're ready.";
   window.location.href = "mailto:Aegarcia1012925@gmail.com?subject=" + subject + "&body=" + body;
