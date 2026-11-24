@@ -1,0 +1,8 @@
+export async function onRequestPost({ request, env }) {
+ if(!env.RESEND_API_KEY||!env.LEADS_TO_EMAIL||!env.LEADS_FROM_EMAIL)return Response.json({error:"Inquiry email is not configured yet."},{status:503});
+ let body;try{body=await request.json();}catch{return Response.json({error:"Invalid request."},{status:400});}
+ const name=String(body.name||"").trim().slice(0,80),business=String(body.business||"").trim().slice(0,100),email=String(body.email||"").trim().slice(0,160),details=String(body.details||"").trim().slice(0,1500);
+ if(!name||!details||body.consent!=="on"||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return Response.json({error:"Please complete the required fields and consent checkbox."},{status:400});
+ const safe=value=>value.replace(/[<>]/g,"");
+ try{const sent=await fetch("https://api.resend.com/emails",{method:"POST",headers:{"Authorization":"Bearer "+env.RESEND_API_KEY,"Content-Type":"application/json"},body:JSON.stringify({from:env.LEADS_FROM_EMAIL,to:[env.LEADS_TO_EMAIL],reply_to:email,subject:"New Kuji Digital project inquiry — "+safe(name),text:"New project inquiry from the Kuji Digital website\n\nName: "+safe(name)+"\nBusiness: "+safe(business||"Not provided")+"\nReply email: "+safe(email)+"\n\nProject details:\n"+safe(details)+"\n\nThe visitor consented to be contacted about this inquiry."})});if(!sent.ok)return Response.json({error:"Email delivery failed. Please try again later."},{status:502});return Response.json({ok:true});}catch{return Response.json({error:"Email delivery failed. Please try again later."},{status:502});}
+}
