@@ -33,5 +33,5 @@ if (year) year.textContent = new Date().getFullYear();
 // Replace this placeholder with the business email before publishing.
 const contactLink = document.querySelector("#contact-link");
 if (contactLink) {
-  contactLink.href = "mailto:hello@kujidigital.com";
+  contactLink.href = "mailto:Aegarcia1012925@gmail.com";
 }
