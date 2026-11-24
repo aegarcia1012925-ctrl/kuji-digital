@@ -1,24 +1,30 @@
-# Kuji Digital — Brand Identity
+# Kuji Digital — Multi-page website
 
-A responsive brand identity landing page for Kuji Digital, an AI-powered digital services concept.
+A responsive digital agency website for Kuji Digital, an AI-powered digital services concept.
 
-## Files
+## Pages and files
 
-- `index.html` — page structure and metadata
-- `styles.css` — responsive visual system and components
-- `script.js` — mobile navigation and dynamic footer year
+- `index.html` — homepage, services, and project inquiry form
+- `about.html` — studio mission and working principles
+- `projects.html` — concept portfolio and interactive scripted chatbot demo
+- `how-it-works.html` — project process and frequently asked questions
+- `styles.css` — shared responsive visual system, glass styling, and animations
+- `script.js` — mobile navigation, scroll reveals, inquiry email preparation, and demo interactions
 - `assets/favicon.svg` — custom brand favicon
 
 ## Preview
 
-Open `index.html` in a browser, or enable GitHub Pages for this repository.
+Open `index.html` in a browser. For a public website, enable GitHub Pages in the repository settings or connect the repository to a static hosting provider.
 
 ## Before publishing
 
-1. Confirm the public contact email in `script.js`.
+1. Confirm the contact email in `script.js`.
 2. Review service descriptions and ensure they match the services actually offered.
-3. Test the site on mobile and desktop.
-4. Connect a custom domain if desired.
+3. The project cards are clearly marked as concept demonstrations; replace them with real work as the portfolio grows.
+4. The chatbot is a scripted UI demo, not connected to a live AI model.
+5. The inquiry form opens a prefilled email in the visitor's email app; it does not store or submit form data to a server.
+6. Test all pages and forms on mobile and desktop.
+7. Connect a custom domain if desired.
 
 ## Brand tokens
 
