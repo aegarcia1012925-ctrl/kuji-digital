@@ -183,3 +183,10 @@ button { font: inherit; }
 .chat-disclaimer{margin:0;padding:0 10px 10px;background:#15151f;color:#777486;text-align:center;font-size:9px}.chat-disclaimer a{color:#b9a6ff;text-decoration:underline}
 @media(max-width:480px){.kuji-chat{right:14px;bottom:14px}.chat-launcher{min-height:50px;padding-inline:16px}.chat-panel{right:-2px;bottom:62px;height:min(520px,calc(100dvh - 90px));width:min(370px,calc(100vw - 24px))}}
 @media(prefers-reduced-motion:reduce){.chat-typing span{animation:none;opacity:.8}.chat-launcher{transition:none}}
+
+/* AI chat lead capture form */
+.chat-lead-details{margin:0 13px 10px;border:1px solid rgba(146,116,255,.22);border-radius:11px;background:rgba(146,116,255,.055);color:#d8d0f7}
+.chat-lead-details summary{padding:9px 11px;font-size:10px;font-weight:600;cursor:pointer}.chat-lead-form{display:grid;gap:9px;padding:0 10px 11px}
+.chat-lead-form label{display:grid;gap:4px;color:#bcb8ca;font-size:10px}.chat-lead-form input:not([type=checkbox]),.chat-lead-form textarea{width:100%;min-width:0;padding:9px;border:1px solid rgba(255,255,255,.12);border-radius:8px;background:#0b0b11;color:#fff;font:inherit;font-size:11px;resize:vertical}
+.chat-lead-form input:focus,.chat-lead-form textarea:focus{outline:1px solid #9274ff;border-color:#9274ff}.chat-lead-form .chat-consent{display:flex;align-items:flex-start;gap:7px;line-height:1.5}.chat-consent input{margin:2px 0 0;accent-color:#9274ff}
+.chat-lead-form button{min-height:36px;border:0;border-radius:8px;background:linear-gradient(135deg,#9a7cff,#704ce0);color:white;font:inherit;font-size:11px;font-weight:700;cursor:pointer}.chat-lead-form button:disabled{opacity:.55;cursor:wait}.chat-lead-status{min-height:0;margin:0;color:#c9baff;font-size:10px;line-height:1.5}
